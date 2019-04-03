@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In</title>
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <style>
+    .logo{
+      font-family: Microsoft YaHei;
+      font-weight: 900;
+      font-size: 60px;
+      padding:50px auto;
+    }
+    .sign2{
+      font-family: Microsoft YaHei;
+      font-size: 15px;
+      font-weight: 300;
+
+    }
+    body{
+      background-color: #FFDEAD;
+
+      padding-top:140px;
+    }
+
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="container" >
+    <div style="text-align: center;margin-bottom: 40px">
+      <span  style="color: #4F94CD; font-weight: 900; font-family: Microsoft YaHei; font-size: 80px; ">失物招领平台</span><br><span class="logo" style="color: #FF7F24">登录</span><span class="logo" style="color: #ff4723"></span><span class="logo" style="color: #FF7F00"></span><span class="logo" style="color: #FFC125"></span><span class="logo" style="color: #FF0000"></span>
+    </div>
+    <input id="zhanghao" type="text" class="form-control center-block" placeholder="账号" style="width:300px;height: 48px">
+    <input id="mima" type="password" class="form-control center-block" placeholder="密码" style="width:300px;height: 48px;border-top: 0px">
+    <button id="denglu" type="submit" class="btn btn-primary center-block" style="width:300px;height: 40px;margin-top: 20px">登录</button>
+    <div style="width: 300px;margin:0 auto;margin-top: 7px">
+      <a href="signup.html"><span class='sign2'> 注册</span></a>
+    </div>
+  </div>
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <div style="margin:30px "></div>
+  <hr class="divider">
+
+
+  <footer>
+    <p>Software 失物招领</p>
+  </footer>
+</div>
+<script src="js/jquery.js"></script>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#denglu').click(function () {
+      if($("#zhanghao").val()=="" && $("#mima").val()==""){
+        alert("账号和密码不能为空!");
+      }
+      else if($("#zhanghao").val()==""||$("#mima").val()==""){
+        if($("#zhanghao").val()==""){
+          alert("账号不能为空!");
+        }
+        if($("#mima").val()==""){
+          alert("密码不能为空!");
+        }
+      }else
+        window.location.href='//////.html';
+
+
+      $.ajax({
+        url:'http:////////////json/signin?account='+$("#zhanghao").val()+"&password="+$("#mima").val(),
+        data:{},
+        type:'GET',
+        dataType:'json',
+
+        success:function(datas){
+          if(datas.msg==true){
+            alert("nihao");
+          }
+          else if(datas.msg==false){
+            alert("登录失败");
+          }
+          else{
+            alert(datas.msg);
+          }
+        },
+      });
+
+    });
+  })
+</script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="/js/jquery-2.1.4.min.js"></script>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
